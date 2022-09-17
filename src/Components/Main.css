@@ -1,0 +1,107 @@
+.main {
+   width: 100%;
+   max-width: 1200px;
+   margin: auto;
+}
+
+.catItem {
+   display: flex;
+   position: relative;
+   letter-spacing: 1px;
+   margin: 0 1rem;
+   flex-direction: column;
+}
+
+.article {
+   width: min(100%, 24rem);
+}
+
+.logo {
+   width: 4rem;
+   margin: 0 0 0 1rem;
+}
+
+.categories {
+   display: block;
+}
+
+.ToggleCategory {
+   display: none;
+}
+
+.drowpdown {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   align-items: flex-end;
+}
+
+@media (min-width: 985px) {
+   .ToggleCategory {
+      display: block;
+      background: blue;
+      width: 40px;
+   }
+   .categories {
+      position: relative;
+      height: max-content;
+      display: none;
+      padding: 5px;
+   
+      
+   }
+
+   .categories ul {
+      display: flex;
+      z-index: 11;
+      position: absolute;
+      left: 0;
+      flex-direction: column;
+      padding: 5px;
+      width: fit-content;
+   
+   }
+   .drowpdown .categories {
+      display: block;
+      /* animation: toggleCategory 0.5s linear ; */
+      width: 170px;
+      height: 190px;
+
+   }
+
+   @keyframes toggleCategory {
+      0% {
+         height: 0;
+      }
+      100% {
+         height: 170px;
+      }
+   }
+}
+
+.catItem:hover {
+   cursor: pointer;
+   transition: all 0.5s;
+   width: fit-content;
+}
+
+.catItem:hover::after {
+   content: "";
+   height: 0.12rem;
+   position: absolute;
+   right: 0;
+   bottom: -2px;
+   left: 0;
+   background: darkgreen;
+   border-radius: 50% 50% 50% 50%;
+   animation: navcatAnimation 0.5s ease-in-out;
+}
+
+@keyframes navcatAnimation {
+   0% {
+      max-width: 0%;
+   }
+   100% {
+      max-width: 100%;
+   }
+}
